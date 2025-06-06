@@ -2,12 +2,11 @@
 A starter template for HTML based services built in Go with a Sqlite data layer
 
 # How to use
-TODO
-
+- Change go module name
+- Update README
 
 # My task list
 - Setup a main
-- Setup cookies
 - Setup dev scripts
 - Setup etc
 - Setup handlers
