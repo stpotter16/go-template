@@ -16,4 +16,5 @@ type Store interface {
 
 	// Clicks
 	GetClicks(ctx context.Context) ([]types.Click, error)
+	CreateClick(ctx context.Context) (int, error)
 }

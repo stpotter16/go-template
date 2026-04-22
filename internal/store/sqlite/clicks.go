@@ -2,6 +2,7 @@ package sqlite
 
 import (
 	"context"
+	"time"
 
 	"github.com/stpotter16/go-template/internal/types"
 )
@@ -34,4 +35,22 @@ func (s Store) GetClicks(ctx context.Context) ([]types.Click, error) {
 	}
 
 	return clicks, nil
+}
+
+func (s Store) CreateClick(ctx context.Context) (int, error) {
+	now := formatTime(time.Now().UTC())
+	result, err := s.db.Exec(ctx,
+		`INSERT INTO clicks
+			(created_time)
+		VALUES ( ? )`,
+		now,
+	)
+	if err != nil {
+		return 0, err
+	}
+	id, err := result.LastInsertId()
+	if err != nil {
+		return 0, err
+	}
+	return int(id), nil
 }
