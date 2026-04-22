@@ -30,5 +30,5 @@ func addRoutes(
 
 	// Session authenticated API endpoints
 	apiAuthRequired := middleware.NewApiAuthenticationRequiredMiddleware(sessionManager)
-	mux.Handle("POST /items", apiAuthRequired(postItems(store)))
+	mux.Handle("POST /clicks", apiAuthRequired(postClicks(store)))
 }
