@@ -9,6 +9,7 @@ import (
 	"github.com/stpotter16/go-template/internal/handlers/middleware"
 	"github.com/stpotter16/go-template/internal/handlers/sessions"
 	"github.com/stpotter16/go-template/internal/store"
+	"github.com/stpotter16/go-template/internal/types"
 )
 
 type viewProps struct {
@@ -92,11 +93,11 @@ func indexGet(s store.Store, sessionManager sessions.SessionManger) http.Handler
 		props := struct {
 			viewProps
 			HasClicks bool
-			Clicks    types.Click[]
+			Clicks    []types.Click
 		}{
 			viewProps: viewProps{CspNonce: nonce, ActivePage: "dashboard"},
 			HasClicks: len(clicks) > 0,
-			Clicks: clicks,
+			Clicks:    clicks,
 		}
 
 		if err := t.Execute(w, props); err != nil {
