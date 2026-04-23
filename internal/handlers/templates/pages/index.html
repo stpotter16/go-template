@@ -21,27 +21,26 @@
       </svg>
       <div>
         <p class="text-lg font-semibold">No clicks yet</p>
-        <p class="text-base-content/60 mt-1">
-          Click button below to add one!.
-        </p>
+        <p class="text-base-content/60 mt-1">Click button below to add one!.</p>
       </div>
       <a href="/accounts" class="btn btn-primary">Add an account</a>
     </div>
   {{ else }}
     <div class="flex flex-col gap-4">
       {{ range .Clicks }}
-          <div class="card bg-base-200 shadow">
-            <div class="card-body items-center text-center gap-1">
-              <p
-                class="text-sm font-semibold uppercase tracking-wide text-base-content/60"
-              >
-               Click info
-              </p>
-                <p class="text-4xl font-bold mt-1">
-                    Click on {{ .LastModified }}
-                </p>
-            </div>
+        <div class="card bg-base-200 shadow">
+          <div class="card-body items-center text-center gap-1">
+            <p
+              class="text-sm font-semibold uppercase tracking-wide text-base-content/60"
+            >
+              Click info
+            </p>
+            <p class="text-4xl font-bold mt-1">
+              Click on
+              {{ .LastModified }}
+            </p>
           </div>
+        </div>
       {{ end }}
     </div>
   {{ end }}
